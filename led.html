@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control del LED</title>
+</head>
+<body>
+    <h1>Controlar el LED desde la Web</h1>
+
+    <button onclick="controlLed('on')">Encender LED</button>
+    <button onclick="controlLed('off')">Apagar LED</button>
+  
+    <script>
+      async function controlLed(action) {
+        try {
+          const response = await fetch(`http://localhost:3002/led/${action}`);
+          const result = await response.text();
+          alert(result);  // Muestra el resultado en una alerta
+        } catch (error) {
+          alert('Error: ' + error);
+        }
+      }
+    </script>
+</body>
+</html>
