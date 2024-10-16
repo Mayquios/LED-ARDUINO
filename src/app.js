@@ -1,12 +1,11 @@
 import express from 'express';
 import axios from 'axios';
+import path from 'path';
 const app = express();
 const port = 3002;
 
-app.get('/', (req, res) => {
-    
-    res.send('ardudino');
-})
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 // Ruta para encender el LED
